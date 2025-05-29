@@ -15,6 +15,17 @@ const App = () => {
 
   return (
     <div className="main">
+      <div className="nav">
+        <p>Maitreyi</p>
+        <div className="links">
+          <a href="#AboutMe">AboutMe </a>
+          <a href="#LogicSection">LogicSection </a>
+          <a href="#LiteratureSection">LiteratureSection </a>
+          <a href="#WorldOfTheEast">WorldOfTheEast </a>
+          <a href="#WorldOfTheWest">WorldOfTheWest </a>
+        </div>
+      </div>
+
       <div className="pages">
         {h == "#AboutMe" ? (
           <AboutMe />
@@ -29,13 +40,6 @@ const App = () => {
         ) : (
           <AboutMe />
         )}
-      </div>
-      <div className="links">
-        <a href="#AboutMe">AboutMe </a>
-        <a href="#LogicSection">LogicSection </a>
-        <a href="#LiteratureSection">LiteratureSection </a>
-        <a href="#WorldOfTheEast">WorldOfTheEast </a>
-        <a href="#WorldOfTheWest">WorldOfTheWest </a>
       </div>
     </div>
   );

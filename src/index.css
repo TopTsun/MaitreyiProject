@@ -8,6 +8,7 @@
 
 .main {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   height: 100vh;
 
@@ -16,22 +17,29 @@
     height: 100%;
   }
 
-  .links {
-    float: right;
+  .nav {
     display: flex;
-    position: absolute;
-    right: 0;
-    flex-direction: column;
+    flex-direction: row;
     border: 1px solid black;
     background-color: #222831;
+    justify-content: space-between;
 
     text-align: center;
     padding: 20px;
-    height: auto;
-    gap: 10px;
+    height: 10%;
 
+    .links {
+      display: flex;
+      gap: 20px;
+    }
+
+    p {
+      color: #dfd0b8;
+      font-size: 18px;
+      font-weight: 500;
+    }
     a {
-      color: rgb(187, 187, 187);
+      color: #dfd0b8;
       text-decoration: underline;
     }
   }
