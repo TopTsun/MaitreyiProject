@@ -48,6 +48,10 @@
     .nav {
       height: 25%;
       flex-direction: column;
+
+      .links {
+        flex-direction: column;
+      }
     }
   }
 }
