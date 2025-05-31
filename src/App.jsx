@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AboutMe from "./Pages/AboutMe/AboutMe.jsx";
 import WorldOfTheWest from "./Pages/WorldOfTheWest/WorldOfTheWest.jsx";
 import WorldOfTheEast from "./Pages/WorldOfTheEast/WorldOfTheEast.jsx";
@@ -7,11 +7,24 @@ import LogicSection from "./Pages/LogicSection/LogicSection.jsx";
 
 const App = () => {
   const [h, setH] = useState(window.location.hash);
+  const pages = {
+    "#AboutMe": AboutMe,
+    "#LogicSection": LogicSection,
+    "#LiteratureSection": LiteratureSection,
+    "#WorldOfTheEast": WorldOfTheEast,
+    "#WorldOfTheWest": WorldOfTheWest,
+  };
 
-  window.addEventListener("hashchange", function () {
-    console.log(window.location.hash);
-    setH(window.location.hash);
-  });
+  useEffect(() => {
+    const onHashChange = () => {
+      setH(window.location.hash);
+    };
+
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  const PageComponent = pages[h] || AboutMe;
 
   return (
     <div className="main">
@@ -27,19 +40,7 @@ const App = () => {
       </div>
 
       <div className="pages">
-        {h == "#AboutMe" ? (
-          <AboutMe />
-        ) : h == "#LogicSection" ? (
-          <LogicSection />
-        ) : h == "#LiteratureSection" ? (
-          <LiteratureSection />
-        ) : h == "#WorldOfTheEast" ? (
-          <WorldOfTheEast />
-        ) : h == "#WorldOfTheWest" ? (
-          <WorldOfTheWest />
-        ) : (
-          <AboutMe />
-        )}
+        <PageComponent />
       </div>
     </div>
   );

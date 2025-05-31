@@ -18,15 +18,15 @@
   }
 
   .nav {
-    display: flex;
-    flex-direction: row;
     border: 1px solid black;
     background-color: #222831;
+    display: flex;
     justify-content: space-between;
-
-    text-align: center;
-    padding: 20px;
-    height: 10%;
+    align-items: center;
+    height: 15%;
+    width: 100%;
+    padding: 0 6rem;
+    z-index: 100;
 
     .links {
       display: flex;
@@ -41,6 +41,13 @@
     a {
       color: #dfd0b8;
       text-decoration: underline;
+    }
+  }
+
+  @media screen and (max-width: 824px) {
+    .nav {
+      height: 25%;
+      flex-direction: column;
     }
   }
 }
